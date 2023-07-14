@@ -25,9 +25,14 @@ Tic-Tac-Toe Bonus Features
   - Report current scores after each game and be clear when someone wins
     a match
 - Take turns going first
-  - Randomly decide who goes first for the first game of a match
-  - Human and computer then take turns going first in each game
+  - Human and computer take turns going first in each game
   - Can keep the human and computer markers as they are
+
+Other notes:
+- Tried to implement randomly deciding who goes first in the first game of
+  a match
+  - If computer went first, screen was cleared after its first move, meaning
+    that the user would not see the welcome message
 
 
 Other challenging ideas:
@@ -191,11 +196,7 @@ class TTTGame {
     this.board = new Board();
     this.human = new Human();
     this.computer = new Computer();
-    this.firstPlayer = this.randomFirstPlayer();
-  }
-
-  randomFirstPlayer() {
-    return Math.floor(Math.random() * 2) === 0 ? this.human : this.computer;
+    this.firstPlayer = this.human;
   }
 
   play() {
@@ -224,7 +225,7 @@ class TTTGame {
     let currentPlayer = this.firstPlayer;
 
     this.board.initialize();
-    this.board.displayWithClear();
+    this.board.display();
 
     while (true) {
       this.playerMoves(currentPlayer);
@@ -249,6 +250,7 @@ class TTTGame {
       console.log("");
     }
 
+    console.clear();
     return answer === 'y';
   }
 
