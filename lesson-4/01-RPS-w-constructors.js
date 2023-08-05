@@ -1,4 +1,4 @@
-// Rewriting the Rock-Paper-Scissors game from lesson 1 (that used factrory
+// Rewriting the Rock-Paper-Scissors game from lesson 1 (that used factory
 // functions), first with constructors and prototypes, then with classes (in
 // the next file)
 
